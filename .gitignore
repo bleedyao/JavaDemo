@@ -1,0 +1,6 @@
+# IntelliJ
+*.iml
+.idea
+Android.gitignore
+Java.gitignore
+out
