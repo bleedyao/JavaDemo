@@ -7,10 +7,9 @@ import com.bleedyao.demo.algorithm.utils.Utils;
 /**
  * 冒泡排序
  */
-public class Bubble {
+public class Bubble_01 {
     public static void main(String[] args) {
         new Checker(new BubbleSort())
-                .setSize(10000)
                 .run();
     }
 

@@ -21,6 +21,7 @@ public class Checker {
     Boolean isEqual;
     Properties properties = new Properties();
 
+
     public interface TestAlgorithm {
         void test(int[] arr);
     }
@@ -86,22 +87,21 @@ public class Checker {
     }
 
     private void correctAlgorithm() {
-        startTime = System.currentTimeMillis();
         if (mCorrectAlgorithm != null)
             mCorrectAlgorithm.correct(correctArray);
         else
             //默认升序排序
             Arrays.sort(correctArray);
-        diffTime = System.currentTimeMillis() - startTime;
-        System.out.println("正确算法测试时间：" + diffTime);
+
     }
 
     private void printPreSort() {
-        System.out.println("待测数组：" + Arrays.toString(originArray));
+        System.out.println("原始数组：" + Arrays.toString(originArray));
     }
 
     private void printSortedResult() {
-        System.out.println("原始数组：" + Arrays.toString(originArray));
+        if (mCorrectAlgorithm == null)
+            return;
         System.out.println("测试数组：" + Arrays.toString(testArray));
         System.out.println("正确数组：" + Arrays.toString(correctArray));
         isEqual();
@@ -119,19 +119,28 @@ public class Checker {
         isEqual = true;
     }
 
+    public long testMethodTime() {
+        long startTime = System.currentTimeMillis();
+        mTestAlgorithm.test(testArray);
+        return System.currentTimeMillis() - startTime;
+    }
+
+    public long correctMethodTime() {
+        long startTime = System.currentTimeMillis();
+        correctAlgorithm();
+        return System.currentTimeMillis() - startTime;
+    }
+
     public void run(int count) {
         for (int i = 0; i < count; i++) {
             System.out.println("staaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaart");
             createRandomArray((int) (Math.random() * size));
             copyArray();
             System.out.println("第 " + (i + 1) + " 测试");
-//            printPreSort();
+            printPreSort();
 //            System.out.println();
-            startTime = System.currentTimeMillis();
-            mTestAlgorithm.test(testArray);
-            diffTime = System.currentTimeMillis() - startTime;
-            System.out.println("测试算法测试时间：" + diffTime);
-            correctAlgorithm();
+            System.out.println("测试算法测试时间：" + testMethodTime());
+            System.out.println("正确算法测试时间：" + correctMethodTime());
             printSortedResult();
             System.out.println("ennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnd");
             System.out.println();

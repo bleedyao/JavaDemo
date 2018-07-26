@@ -2,7 +2,7 @@ package com.bleedyao.demo.algorithm;
 
 import com.bleedyao.demo.algorithm.result.Checker;
 
-public class Merge {
+public class Merge_04 {
     public static void main(String[] args) {
         new Checker(new MergeSort())
                 .setSize(10_000)

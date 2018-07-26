@@ -3,7 +3,7 @@ package com.bleedyao.demo.algorithm;
 import com.bleedyao.demo.algorithm.result.Checker;
 import com.bleedyao.demo.algorithm.utils.Utils;
 
-public class Select {
+public class Select_02 {
     public static void main(String[] args) {
         new Checker(new SelectSort())
                 .setSize(10000)

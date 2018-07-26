@@ -3,7 +3,7 @@ package com.bleedyao.demo.algorithm;
 import com.bleedyao.demo.algorithm.result.Checker;
 import com.bleedyao.demo.algorithm.utils.Utils;
 
-public class Insert {
+public class Insert_03 {
     public static void main(String[] args) {
         new Checker(new InsertSort())
                 .setSize(10_000).run();
